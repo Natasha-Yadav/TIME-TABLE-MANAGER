@@ -1,0 +1,988 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the welcome screen */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        #welcome-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #continue-button {
+            background-color: #007bff; /* Blue button color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <div id="welcome-message">
+            <h1>Welcome! </h1>
+            
+        </div>
+        <button id="continue-button">Continue</button>
+    </div>
+
+    
+
+    <script>
+        // JavaScript to hide the welcome screen when the "Continue" button is clicked
+        document.getElementById('continue-button').addEventListener('click', function() {
+            document.getElementById('welcome-screen').style.display = 'none';
+        });
+    
+        // JavaScript to automatically hide the welcome screen after a certain time (e.g., 5 seconds)
+        setTimeout(function() {
+            document.getElementById('welcome-screen').style.display = 'none';
+        }, 10000); // 5000 milliseconds (5 seconds)
+    </script>
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background-image: url("https://www.designyourway.net/blog/wp-content/uploads/2018/11/Beautiful-goo-700x394.jpg");
+        
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+        }
+    </style> 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Time Table Manager</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Colorful Calendar</title>
+        
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        
+        
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+        
+        <style>
+            #calendar {
+                background-color: rgb(255, 254, 183); 
+            }
+        </style>
+        
+      
+        
+
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-light" style="background-color: #eb7e96;">
+            <a class="navbar-brand" href="#">
+                <img src="https://static.thenounproject.com/png/4555288-200.png" width="70" height="70" alt="">
+            </a>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">TIME TABLE MANAGER</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                  
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#" id="calendar-link">Calendar</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#" id="todo-link">To-Do</a>
+                    </li>
+                   
+                    
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <!-- Sign-in Button  -->
+            <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#loginModal">
+                Sign In
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sign-In -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sign-In Here -->
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <!-- Wrong Password Message -->
+                        <div class="alert alert-danger" id="wrongPasswordMsg" style="display: none;">
+                            Wrong Password. Please try again.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </nav>
+   
+
+
+        <style>
+            /* To-Do List Container */
+            #todo-container {
+                display: none;
+                background-color: #f8d8f4;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                margin-top: 20px;
+            }
+        
+            #todo-container h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+        
+            #task-input {
+                border-radius: 0;
+            }
+        
+            #add-task {
+                border-radius: 0;
+            }
+        
+            #task-list {
+                list-style: none;
+                padding: 0;
+            }
+        
+            #task-list .list-group-item {
+                background-color: #b6abd5;
+                border: none;
+                border-bottom: 1px solid #ddd;
+                border-radius: 0;
+            }
+        
+        </style>
+
+
+
+
+
+         <!-- To-Do List Container -->
+         <div id="todo-container" style="display: none;">
+            <div class="container mt-5">
+                <h1>To-Do List</h1>
+                <div class="input-group mb-3">
+                    <input type="text" id="task-input" class="form-control" placeholder="Add a new task">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" id="add-task">Add</button>
+                    </div>
+                </div>
+                <ul class="list-group" id="task-list">
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- Calendar Container -->
+        <div id="calendar-container" style="display: none;">
+            <!-- Calendar Placeholder -->
+            <div id="calendar"></div>
+        </div>
+        
+    
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+    
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    
+                    initialView: 'dayGridMonth', // or 'timeGridWeek', 'timeGridDay', etc.
+                    events: [
+                       
+                    ],
+                    dayRender: function (info) {
+                        if (info.date.getDate() === new Date().getDate()) {
+                           
+                            info.el.style.backgroundColor = 'yellow'; 
+                        }
+                    }
+                });
+    
+                $("#calendar-link").click(function () {
+                    $("#calendar-container").toggle();
+                  
+                    calendar.render(); 
+                });
+
+                $("#todo-link").click(function () {
+                    $("#todo-container").toggle();
+                    
+                });
+
+                // Add task
+                $("#add-task").click(function () {
+                    var taskText = $("#task-input").val();
+                    if (taskText.trim() !== "") {
+                        var listItem = document.createElement("li");
+                        listItem.className = "list-group-item";
+                        listItem.innerHTML = taskText + '<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+                        $("#task-list").append(listItem);
+                        $("#task-input").val("");
+                    }
+                });
+    
+                // Delete task
+                $("#task-list").on("click", "button.close", function () {
+                    $(this).parent().remove();
+                });
+            });
+        </script>
+    </body>
+    </html>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*  clock display styles */
+        #clock {
+            font-size: 3rem;
+        }
+    </style>
+</head>
+
+<style>
+    .clock-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+    }
+
+    .clock-box {
+        width: 80px;
+        height: 80px;
+        background-color: #000;
+        color: #fff;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+<div class="clock-container">
+    <!-- Hour Box -->
+    <div class="clock-box" id="hourBox">00</div>
+
+    <!-- Minute Box -->
+    <div class="clock-box" id="minuteBox">00</div>
+
+    <!-- Second Box -->
+    <div class="clock-box" id="secondBox">00</div>
+</div>
+
+<script>
+    // Function to update the time boxes
+    function updateTime() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+        document.getElementById("hourBox").textContent = hours;
+        document.getElementById("minuteBox").textContent = minutes;
+        document.getElementById("secondBox").textContent = seconds;
+    }
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+
+    // Initial update
+    updateTime();
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+        @font-face {
+            font-family: 'TypewriterFont';
+            src: url('path-to-your-font-file.ttf'); 
+        }
+
+        /*  container for the quote */
+        .quote-container {
+            font-family: 'TypewriterFont', monospace; 
+            font-size: 24px;
+            text-align: center;
+            padding: 0px;
+            background-color: #dff3b7;
+            border: 1px solid #ffffff;
+            box-shadow: 0 0 10px rgba(210, 109, 109, 0.1);
+        }
+
+        /* the quote text */
+        .quote {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-container">
+        <p class="quote">"Time Management Is The Key To Success"</p>
+    </div>
+</body>
+</html>
+
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    .timetable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .timetable th {
+        background-color: #ae9ac8;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        text-align: left; 
+    }
+
+    .timetable th, .timetable td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left; 
+    }
+
+    .timetable tbody tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    .timetable tbody tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    
+    .timetable tbody tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    
+    .timetable thead tr th {
+        background-color: #7ebce5;
+        color: white;
+    }
+</style>
+
+
+
+
+
+
+<div class="container mt-5">
+  <h1>Event Form</h1>
+  <form id="eventForm">
+      <div class="form-group">
+          <label for="eventName">Event Name</label>
+          <input type="text" class="form-control" id="eventName" placeholder="Enter event name">
+      </div>
+      <div class="form-group">
+          <label for="eventStartTime">Event Start Time</label>
+          <select class="form-control" id="eventStartTime" required>
+              <option value="1">9:00 AM</option>
+              <option value="2">10:00 AM</option>
+              <option value="3">11:00 AM</option>
+              <option value="4">12:00 PM</option>
+              <option value="5">1:00 PM</option>
+              <option value="6">2:00 PM</option>
+              <option value="7">3:00 PM</option>
+              <option value="8">4:00 PM</option>
+              <option value="9">5:00 PM</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="eventEndTime">Event End Time</label>
+          <select class="form-control" id="eventEndTime" required>
+              <option value="1">10:00 AM</option>
+              <option value="2">11:00 AM</option>
+              <option value="3">12:00 PM</option>
+              <option value="4">1:00 PM</option>
+              <option value="5">2:00 PM</option>
+              <option value="6">3:00 PM</option>
+              <option value="7">4:00 PM</option>
+              <option value="8">5:00 PM</option>
+              <option value="9">6:00 PM</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="eventWeekday">Event Weekday</label>
+          <select class="form-control" id="eventWeekday" required>
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="eventColor">Event Color</label>
+          <input type="color" class="form-control" id="eventColor" value="#00ff00">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div class="container mt-5">
+  <h1>Weekly Timetable</h1>
+  <table class="table table-bordered timetable mt-4">
+      <thead>
+          <tr>
+              <th>Time</th>
+              <th>9:00 AM - 10:00 AM</th>
+              <th>10:00 AM - 11:00 AM</th>
+              <th>11:00 AM - 12:00 PM</th>
+              <th>12:00 PM - 1:00 PM</th>
+              <th>1:00 PM - 2:00 PM</th>
+              <th>2:00 PM - 3:00 PM</th>
+              <th>3:00 PM - 4:00 PM</th>
+              <th>4:00 PM - 5:00 PM</th>
+              <th>5:00 PM - 6:00 PM</th>
+          </tr>
+      </thead>
+      <tbody id="timetableBody">
+          <tr>
+              <th>Monday</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th>Tuesday</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th>Wednesday</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th>Thursday</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th>Friday</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  
+  $("#eventForm").submit(function(event) {
+      event.preventDefault();
+
+      
+      const eventName = $("#eventName").val();
+      const eventStartTime = parseInt($("#eventStartTime").val());
+      const eventEndTime = parseInt($("#eventEndTime").val());
+      const eventWeekday = parseInt($("#eventWeekday").val());
+      const eventColor = $("#eventColor").val();
+
+      const eventWeekdayRow = $(`#timetableBody tr:nth-of-type(${eventWeekday})`)[0];
+
+      for(let i = eventStartTime; i <= eventEndTime; i++) {
+          const cell = eventWeekdayRow.children[i];
+          cell.textContent = eventName;
+          cell.bgColor = eventColor;
+          
+          const deleteButton = document.createElement("span");
+          deleteButton.textContent = "✖"; // Cross symbol
+          deleteButton.className = "delete-button";
+          deleteButton.addEventListener("click", function() {
+              
+              cell.textContent = "";
+              cell.bgColor = "";
+              cell.removeChild(deleteButton);
+          });
+          cell.appendChild(deleteButton);
+      }
+  });
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .timer {
+            font-size: 48px;
+            text-align: center;
+        }
+        .message {
+            font-size: 24px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Focus Timer</h1>
+                <div class="form-group">
+                    <label for="timerInput">Set Timer (minutes):</label>
+                    <input type="number" class="form-control" id="timerInput" min="1" value="25">
+                </div>
+                <div class="timer" id="timer">25:00</div>
+                <div class="message" id="message"></div>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" id="start">Start</button>
+                    <button class="btn btn-danger" id="reset" disabled>Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let minutes = 25;
+        let seconds = 0;
+        let isRunning = false;
+
+        function startTimer() {
+            if (!isRunning) {
+                minutes = parseInt(document.getElementById("timerInput").value);
+                seconds = 0;
+                updateTimerDisplay();
+
+                isRunning = true;
+                document.getElementById("timerInput").setAttribute("disabled", "true");
+                document.getElementById("start").setAttribute("disabled", "true");
+                document.getElementById("reset").removeAttribute("disabled");
+
+                timerInterval = setInterval(function() {
+                    if (minutes === 0 && seconds === 0) {
+                        clearInterval(timerInterval);
+                        isRunning = false;
+                        document.getElementById("timerInput").removeAttribute("disabled");
+                        document.getElementById("start").removeAttribute("disabled");
+                        document.getElementById("reset").setAttribute("disabled", "true");
+
+                        
+                        document.getElementById("message").textContent = "GOOD JOB";
+                        document.getElementById("message").style.display = "block";
+                    } else {
+                        if (seconds === 0) {
+                            minutes--;
+                            seconds = 59;
+                        } else {
+                            seconds--;
+                        }
+                        updateTimerDisplay();
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            document.getElementById("timerInput").removeAttribute("disabled");
+            document.getElementById("start").removeAttribute("disabled");
+            document.getElementById("reset").setAttribute("disabled", "true");
+
+            
+            document.getElementById("timerInput").value = "25";
+            minutes = 25;
+            seconds = 0;
+            updateTimerDisplay();
+
+            
+            document.getElementById("message").style.display = "none";
+        }
+
+        function updateTimerDisplay() {
+            const timerElement = document.getElementById("timer");
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        document.getElementById("start").addEventListener("click", startTimer);
+        document.getElementById("reset").addEventListener("click", resetTimer);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourglass</title>
+    <style>
+        .hourglass-container {
+            width: 100px;
+            height: 200px;
+            position: relative;
+        }
+
+        .hourglass {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #333;
+            position: absolute;
+            top: 0;
+            left: 25px;
+        }
+
+        .sand {
+            width: 100%;
+            height: 100%;
+            background-color: #EFD809;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="hourglass-container">
+        <div class="hourglass"></div>
+        <div class="sand"></div>
+    </div>
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+            margin: 0;
+        }
+
+        
+        .content {
+            flex: 1;
+        }
+
+        
+        .creative-footer {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer; 
+        }
+
+        
+        .creative-footer i {
+            font-size: 24px;
+            padding-right: 10px;
+        }
+
+        
+        .star-rating {
+            font-size: 24px;
+        }
+
+        .star-rating i {
+            color: #ddd; 
+            cursor: pointer;
+        }
+
+        
+        .star-rating i.selected {
+            color: #ffcc00;
+        }
+
+        
+        .modal-backdrop {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="content">
+        
+    </div>
+
+    
+    <div class="creative-footer" data-toggle="modal" data-target="#feedbackModal">
+        <p><i class="fas fa-star"></i> Feedback</p>
+    </div>
+
+    
+    <div class="creative-footer" data-toggle="modal" data-target="#feedbackModal">
+        
+        <p></i>👻 Made by - Natasha Yadav</p>
+    </div>
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Give Feedback</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please rate your experience:</p>
+                    <div class="star-rating">
+                        <i class="fas fa-star" data-rating="1"></i>
+                        <i class="fas fa-star" data-rating="2"></i>
+                        <i class="fas fa-star" data-rating="3"></i>
+                        <i class="fas fa-star" data-rating="4"></i>
+                        <i class="fas fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitFeedbackBtn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        var selectedRating = 0;
+
+        
+        $('.star-rating i').on('click', function () {
+            var rating = parseInt($(this).data('rating'));
+            selectedRating = rating;
+
+            
+            $('.star-rating i').removeClass('selected');
+
+            
+            $(this).addClass('selected');
+            $(this).prevAll().addClass('selected');
+        });
+
+       
+        $('#submitFeedbackBtn').on('click', function () {
+          
+            alert('Thank you for your feedback! You rated ' + selectedRating + ' stars.');
+
+            
+            $('#feedbackModal').modal('hide');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
